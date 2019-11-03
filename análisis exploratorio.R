@@ -1,5 +1,6 @@
 setwd("C:/Users/Usuario Dell/Desktop/S8/Data Science/lab8-DataScience")
 
+library("readxl")
 library(ggplot2)
 
 enero2012 <- read.delim("data/enero2012.txt", header = F, sep = "|")
@@ -97,6 +98,16 @@ import2016 <- rbind(enero2016, febrero2016, marzo2016, abril2016, mayo2016, juni
 import2017 <- rbind(enero2017, febrero2017, marzo2017, abril2017, mayo2017, junio2017, julio2017, agosto2017, septimbre2017, octubre2017, noviembre2017, diciembre2017)
 import2018 <- rbind(enero2018, febrero2018, marzo2018, abril2018, mayo2018, junio2018, julio2018, agosto2018, septimbre2018, octubre2018, noviembre2018, diciembre2018)
 
+accidentes2012 <- read_excel("dataAccidentes/2012Accidentes.xls", sheet = 45)
+accidentes2013 <- read_excel("dataAccidentes/2013Accidentes.xlsx", sheet = 45)
+accidentes2014 <- read_excel("dataAccidentes/2014Accidentes.xlsx", sheet = 20)
+accidentes2015 <- read_excel("dataAccidentes/2015Accidentes.xls", sheet = 22)
+accidentes2016 <- read_excel("dataAccidentes/2016Accidentes.xlsx", sheet = 20)
+accidentes2017 <- read_excel("dataAccidentes/2017Accidentes.xlsx", sheet = 20)
+accidentes2018 <- read_excel("dataAccidentes/2018Accidentes.xlsx", sheet = 53)
+
+
+
 sort(table(import2012$V10))
 sort(table(import2013$v10))
 sort(table(import2014$v10))
@@ -113,7 +124,11 @@ ggplot(import, aes(Motos, Frecuencia)) +
   theme_minimal()
 
 
+accidentes <- data.frame(Años = c("2012", "2013", "2014", "2015", "2016", "2017", "2018"), Fallecidos = c(236, 316, 1713, 2235, 3160, 2575, 591))
 
+ggplot(accidentes, aes(Años, Fallecidos)) +
+  geom_col(fill = rgb(0.2, 0.2, 1, 0.3), color = "blue") +
+  theme_minimal()
 
 
 
