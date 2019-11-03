@@ -1,5 +1,7 @@
 setwd("C:/Users/Usuario Dell/Desktop/S8/Data Science/lab8-DataScience")
 
+library(ggplot2)
+
 enero2012 <- read.delim("data/enero2012.txt", header = F, sep = "|")
 febrero2012 <- read.delim("data/febrero2012.txt", header = F, sep = "|")
 marzo2012 <- read.delim("data/marzo2012.txt", header = F, sep = "|")
@@ -86,4 +88,36 @@ septimbre2018 <- read.delim("data/septiembre2018.txt", header = F, sep = "|")
 octubre2018 <- read.delim("data/octubre2018.txt", header = F, sep = "|")
 noviembre2018 <- read.delim("data/noviembre2018.txt", header = F, sep = "|")
 diciembre2018 <- read.delim("data/diciembre2018.txt", header = F, sep = "|")
+
+import2012 <- rbind(enero2012, febrero2012, marzo2012, abril2012, mayo2012, junio2012, julio2012, agosto2012, septimbre2012, octubre2012, noviembre2012, diciembre2012)
+import2013 <- rbind(enero2013, febrero2013, marzo2013, abril2013, mayo2013, junio2013, julio2013, agosto2013, septimbre2013, octubre2013)
+import2014 <- rbind(febrero2014, marzo2014, abril2014, mayo2014, junio2014, julio2014, agosto2014, septimbre2014, octubre2014, noviembre2014, diciembre2014)
+import2015 <- rbind(enero2015, febrero2015, marzo2015, abril2015, mayo2015, junio2015, julio2015, agosto2015, septimbre2015, octubre2015, diciembre2015)
+import2016 <- rbind(enero2016, febrero2016, marzo2016, abril2016, mayo2016, junio2016, julio2016, agosto2016, septimbre2016, octubre2016, noviembre2016, diciembre2016)
+import2017 <- rbind(enero2017, febrero2017, marzo2017, abril2017, mayo2017, junio2017, julio2017, agosto2017, septimbre2017, octubre2017, noviembre2017, diciembre2017)
+import2018 <- rbind(enero2018, febrero2018, marzo2018, abril2018, mayo2018, junio2018, julio2018, agosto2018, septimbre2018, octubre2018, noviembre2018, diciembre2018)
+
+sort(table(import2012$V10))
+sort(table(import2013$v10))
+sort(table(import2014$v10))
+sort(table(import2015$V10))
+sort(table(import2016$V10))
+sort(table(import2017$V10))
+sort(table(import2018$V10))
+
+
+import <- data.frame(Motos = c("2012", "2013", "2014", "2015", "2016", "2017", "2018"), Frecuencia = c(106839, 85879, 93747, 124335, 145714, 157750, 180787))
+
+ggplot(import, aes(Motos, Frecuencia)) +
+  geom_col(fill = rgb(0.2, 0.2, 1, 0.3), color = "blue") +
+  theme_minimal()
+
+
+
+
+
+
+
+
+
 
